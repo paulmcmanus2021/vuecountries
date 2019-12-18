@@ -2,7 +2,7 @@
   <div>
     <h1>Countries</h1>
     <div class="main-container">
-      <countries-list v-bind:countries='countries'></countries-list>
+      <country-dropdown v-bind:countries='countries'></country-dropdown>
       <country-detail v-bind:country='selectedCountry'></country-detail>
     </div>
   </div>
@@ -12,13 +12,14 @@
 import CountriesList from './components/CountriesList.vue';
 import { eventBus } from './main.js'
 import CountryDetail from './components/countryDetail.vue';
+import CountryDropdown from './components/CountryDropdown.vue'
 
 export default {
   name: 'app',
   data(){
     return {
       countries: [],
-      selectedCountry: null
+      selectedCountry: null,
     }
   },
   mounted(){
@@ -34,10 +35,9 @@ export default {
   components: {
     "countries-list": CountriesList,
     "country-detail": CountryDetail,
+    "country-dropdown": CountryDropdown
   }
 }
-
-
 </script>
 
 <style>
